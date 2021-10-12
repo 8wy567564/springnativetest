@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    # 10,000msでクエリタイムアウト
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:magiq}?socketTimeout=10000
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:mysql}
+    hikari:
+      # 1,000msで接続タイムアウト
+      connection-timeout: 10000
+      maximum-pool-size: 200
+      #auto-commit: false
+  session:
+    store-type: jdbc
+
+mybatis:
+  #mapperLocations: classpath*:/com/example/demo/mapper/*.xml
+  configuration:
+    mapUnderscoreToCamelCase: true
